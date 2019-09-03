@@ -2,6 +2,9 @@ const express = require('express')
 const app = express()
 const port = 5001
 
+const staticfolder = express.static(__dirname + '/static')
+app.use(staticfolder);
+
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
