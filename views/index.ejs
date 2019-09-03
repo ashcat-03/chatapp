@@ -5,22 +5,52 @@
   <title>TeamLab Ex</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" />
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+
   <link rel="stylesheet" href="css/main.css" />
 
 </head>
 <body>
-  <div class="container mycontainer">
+  <div id="app" class="container mycontainer">
     <h2 class="title is-2">チャットアプリ</h2>
-
-
-
-
-    <div class="chat chat-u">
-      ばfhdさkljhfdsかhfけうぁkfへわkjfへwかjhfdskじゃfhdさ
+    <div class="messages">
+      <div class="chat" v-for="m in msgs" :class="{'chat-u' : m.type == 'u', 'chat-f' : m.type=='f'}">{{m.msg}}</div>
+      <!-- <div class="chat chat-u">
+        ばfhdさkljhfdsかhfけうぁkfへわkjfへwかjhfdskじゃfhdさ
+      </div>
+      <div class="chat chat-f">
+        {{testt}}
+      </div> -->
     </div>
-    <div class="chat chat-f">
-      ばfhdさkljhfdsかhfけうぁkfへわkjfへwかjhfdskじゃfhdさ
+    <div class="text-part columns">
+      <div class="columns">
+        <div class="column is-11">
+          <input type="text" class="input" id="chatinput">
+        </div>
+        <div class="column is-2">
+          <button class="button is-success is-fullwidth">Go</button>
+        </div>
+      </div>
     </div>
   </div>
+  <script>
+  new Vue({
+  el : "#app",
+  data : {
+    testt : "hello world",
+    msgs: [
+      {
+        type: "u",
+        msg: "Hello jonny"
+      },
+      {
+        type: "f",
+        msg: "Hello bob"
+      }
+    ]
+  }
+})
+  </script>
 </body>
 </html>
