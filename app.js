@@ -23,4 +23,7 @@ install---npm install nodemon -g
 URL---https://scotch.io/tutorials/use-ejs-to-template-your-node-application
 
 (3)cssのフレームワークbulmaを使用
+
+(4)吹き出しを作成
+URL---https://leaverou.github.io/bubbly/
 */
