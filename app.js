@@ -2,6 +2,12 @@ const express = require('express')
 const app = express()
 const port = 5001
 
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
+
+app.use(cookieParser());
+app.use(session({secret: "himitsu!"}));
+
 const staticfolder = express.static(__dirname + '/static')
 app.use(staticfolder);
 
@@ -10,6 +16,12 @@ app.set('view engine', 'ejs');
 app.get('/', (req, res) => {
   res.render("index",{})
 })
+
+app.get('/check', function(req, res){
+  res.send("you are" + req.sessionID );
+});
+
+
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 
@@ -28,5 +40,5 @@ URL---https://scotch.io/tutorials/use-ejs-to-template-your-node-application
 URL---https://leaverou.github.io/bubbly/
 
 (5)常に下にスクロール
-URL---https://stackoverflow.com/questions/18614301/keep-overflow-div-scrolled-to-bottom-unless-user-scrolls-up
+URL---https://github.com/theomessin/vue-chat-scroll
 */
