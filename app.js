@@ -26,4 +26,7 @@ URL---https://scotch.io/tutorials/use-ejs-to-template-your-node-application
 
 (4)吹き出しを作成
 URL---https://leaverou.github.io/bubbly/
+
+(5)常に下にスクロール
+URL---https://stackoverflow.com/questions/18614301/keep-overflow-div-scrolled-to-bottom-unless-user-scrolls-up
 */

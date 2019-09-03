@@ -12,45 +12,64 @@
 
 </head>
 <body>
-  <div id="app" class="container mycontainer">
-    <h2 class="title is-2">チャットアプリ</h2>
-    <div class="messages">
-      <div class="chat" v-for="m in msgs" :class="{'chat-u' : m.type == 'u', 'chat-f' : m.type=='f'}">{{m.msg}}</div>
-      <!-- <div class="chat chat-u">
-        ばfhdさkljhfdsかhfけうぁkfへわkjfへwかjhfdskじゃfhdさ
+  <div id="app" class="container">
+    <div class="mycontainer" ref="msgbigbox">
+      <h2 class="title is-2">チャットアプリ</h2>
+      <div class="messages">
+        <div v-for="m in msgs">
+          <div class="chat" :class="{'chat-u' : m.type == 'u', 'chat-f' : m.type=='f'}">{{m.msg}}</div>
+          <div class="clr"></div>
+        </div>
       </div>
-      <div class="chat chat-f">
-        {{testt}}
-      </div> -->
     </div>
-    <div class="text-part columns">
+    <div class="text-part">
       <div class="columns">
-        <div class="column is-11">
-          <input type="text" class="input" id="chatinput">
+        <div class="column is-10">
+          <input type="text" v-model="messageVal" class="input" @keyup.enter="sendMsg" id="chatinput">
         </div>
         <div class="column is-2">
-          <button class="button is-success is-fullwidth">Go</button>
+          <button class="button is-success is-fullwidth" @click="sendMsg">Go</button>
         </div>
       </div>
     </div>
   </div>
   <script>
   new Vue({
-  el : "#app",
-  data : {
-    testt : "hello world",
-    msgs: [
-      {
-        type: "u",
-        msg: "Hello jonny"
+    el : "#app",
+    data : {
+      messageVal : "",
+      msgs: [
+        {
+          type: "u",
+          msg: "Hello jonny"
+        },
+        {
+          type: "f",
+          msg: "Hello bob"
+        }
+      ]
+    },
+    methods : {
+      sendMsg: function(){
+        this.msgs.push({
+          type: "u",
+          msg: this.messageVal
+        })
+        this.updateScroll()
+        this.messageVal = ""
       },
-      {
-        type: "f",
-        msg: "Hello bob"
-      }
-    ]
-  }
-})
+      updateScroll: function() {
+                window.scrollTo(0,document.body.scrollHeight)
+            }
+      },
+      mounted() {
+            console.log("Mounted")
+    },
+    updated() {
+            console.log("Updated")
+            this.updateScroll()
+        }
+  })
   </script>
 </body>
 </html>

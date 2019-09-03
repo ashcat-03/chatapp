@@ -1,8 +1,11 @@
 .mycontainer{
   height: 100%;
-  margin-top: 50px;
   max-width: 400px;
+  margin: 50px auto;
   padding: 0 10px 0 10px 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin-bottom: 150px;
 }
 
 .chat{
@@ -48,13 +51,20 @@
   margin-top: -4px;
   margin-left: -4px;
 }
+.clr{clear:both;}
 .text-part {
+  position: fixed;
+  bottom: 0;
+  padding-bottom: 20px;
+  background: rgb(238, 238, 238);
+  left: 0;
   margin-top: 10px;
   width: 100%;
 }
 .text-part .columns{
-  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
 }
 .text-part input{
-  width: 100%;
+  /* width: 100%; */
 }
